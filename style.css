@@ -1,0 +1,25 @@
+*, ::before, ::after{
+box-sizing: border-box;
+}
+
+body{
+font-family: 'roboto';
+}
+
+b{
+font-size: 50px;
+}
+
+b:hover{
+color:#0033CC
+;}
+
+.navbar-nav li a:hover{
+color: #0033CC;
+font-weight: 700;
+}
+
+a.nav-link.active{
+color: white !important;
+font-weight: 900;
+}
