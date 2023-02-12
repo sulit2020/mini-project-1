@@ -19,7 +19,24 @@ color: #0033CC;
 font-weight: 700;
 }
 
+.navbar-nav li button a:hover{
+    color: #0033CC;
+    font-weight: 700;
+    }
+
 a.nav-link.active{
-color: white !important;
+color:  white !important;
 font-weight: 900;
 }
+
+#about-story {
+    background: #D3D3D3;
+}
+
+.text-center button{
+padding: 20px;
+}
+.text-center button a:hover{
+    border-bottom: 4px solid #155bd5;
+    border-radius: 3px;
+ }
