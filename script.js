@@ -1,38 +1,12 @@
-const filters = document.querySelectorAll(".portfolio-menu button");
+document.getElementById('products').onmouseover = function() {mouseOver}
+document.getElementById('products').onmouseout = function() {mouseOut}
 
-    filters.forEach((filter) => {
-      filter.addEventListener("click", function () {
-        let filterBtn = filters[0];
-        while (filterBtn) {
-          if (filterBtn.tagName === "BUTTON") {
-            filterBtn.classList.remove("active");
-          }
-          filterBtn = filterBtn.nextSibling;
-        }
-        this.classList.add("active");
+function mouseOver () {
+  let list = document.getElementById('dropdown-menu').classList
+    list.add('show')
+}
 
-        // === filter
-        let selectedFilter = filter.getAttribute("data-filter");
-        let itemsToHide = document.querySelectorAll(
-          `.grid .col-lg-4:not([data-filter='${selectedFilter}'])`
-        );
-        let itemsToShow = document.querySelectorAll(
-          `.grid [data-filter='${selectedFilter}']`
-        );
-
-        if (selectedFilter == "all") {
-          itemsToHide = [];
-          itemsToShow = document.querySelectorAll(".grid [data-filter]");
-        }
-
-        itemsToHide.forEach((el) => {
-          el.classList.add("hide");
-          el.classList.remove("show");
-        });
-
-        itemsToShow.forEach((el) => {
-          el.classList.remove("hide");
-          el.classList.add("show");
-        });
-      });
-    });			
+function mouseOut () {
+  let list = document.getElementById('dropdown-menu').classList
+    list.remove('show')
+}
