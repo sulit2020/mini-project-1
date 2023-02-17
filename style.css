@@ -29,6 +29,11 @@ color:  white !important;
 font-weight: 900;
 }
 
+.navbar-area.a.nav-link.active{
+    border-bottom: 2px solid white;
+    font-weight: 900;
+    }
+
 #about-story {
     background: #D3D3D3;
 }

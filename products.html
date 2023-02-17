@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>iSign</title>
+	<title>Products</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -27,9 +27,11 @@
 						<li class="nav-item">
 						<a class="nav-link" href="about.html">About</a>
 						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle dropdown-toggle-split" href="products.html" role="button" aria-expanded="false" data-bs-toggle="dropdown">Products </a>
-							<ul class="dropdown-menu">
+						<li class="nav-item dropdown" id="products">
+							<a class="nav-link dropdown-toggle dropdown-toggle-split active" href="products.html" role="button" aria-expanded="false" data-bs-toggle="dropdown">Products </a>
+							<ul class="dropdown-menu" id="dropdown-menu">
+								<li><a class="dropdown-item" href="products.html">All Products</a></li>
+								<li><hr class="dropdown-divider"></li>
 								<li><a class="dropdown-item" href="adacompliant.html">ADA Compliant</a></li>
 								<li><a class="dropdown-item" href="castplaque.html">Cast Plaque</a></li>
 								<li><a class="dropdown-item" href="led.html">Illuminated and LED Displays</a></li>
@@ -119,7 +121,7 @@
 							<p class="card-text">ADA Compliant</p>
 								<div class="d-flex justify-content-between align-items-center">
 									<div class="btn-group">
-										<button type="button" class="btn btn-sm btn-outline-success">See More</button>
+										<a class="btn btn-outline-success text-decoration-none" type="button" href="adacompliant.html">See More</a>
 									</div>
 								</div>
 						</div>
@@ -131,7 +133,7 @@
 								<p class="card-text">Cast Plaque</p>
 									<div class="d-flex justify-content-between align-items-center">
 										<div class="btn-group">
-											<button type="button" class="btn btn-sm btn-outline-success">See More</button>
+											<a class="btn btn-outline-success text-decoration-none" type="button" href="castplaque.html">See More</a>
 										</div>
 									</div>
 							</div>
@@ -145,7 +147,7 @@
 							<p class="card-text">Illuminated and LED Display</p>
 								<div class="d-flex justify-content-between align-items-center">
 									<div class="btn-group">
-										<button type="button" class="btn btn-sm btn-outline-success">See More</button>
+										<a class="btn btn-outline-success text-decoration-none" type="button" href="led.html">See More</a>
 									</div>
 								</div>
 						</div>
@@ -157,7 +159,7 @@
 								<p class="card-text">Wayfinding</p>
 									<div class="d-flex justify-content-between align-items-center">
 										<div class="btn-group">
-											<button type="button" class="btn btn-sm btn-outline-success">See More</button>
+											<a class="btn btn-outline-success text-decoration-none" type="button" href="wayfinding.html">See More</a>
 										</div>
 									</div>
 							</div>
@@ -171,7 +173,7 @@
 							<p class="card-text">Letters and Logos</p>
 								<div class="d-flex justify-content-between align-items-center">
 									<div class="btn-group">
-										<button type="button" class="btn btn-sm btn-outline-success">See More</button>
+										<a class="btn btn-outline-success text-decoration-none" type="button" href="lettersandlogos.html">See More</a>
 									</div>
 								</div>
 						</div>
@@ -183,7 +185,7 @@
 								<p class="card-text">Parking Garage Signage</p>
 									<div class="d-flex justify-content-between align-items-center">
 										<div class="btn-group">
-											<button type="button" class="btn btn-sm btn-outline-success">See More</button>
+											<a class="btn btn-outline-success text-decoration-none" type="button" href="parkingsignage.html">See More</a>
 										</div>
 									</div>
 							</div>
@@ -193,48 +195,44 @@
 		</div>
 	</div>
 </section>
-
+<div class="btn-group dropup float-end">
+	<button type="button" class="accordion accordion-button" data-bs-toggle="dropdown" aria-expanded="false">
+    Leave us a message
+	</button>
+	<div class="dropdown-menu accordion-collapse">
+		<div class="accordion-body mx-2 my-3">
+			<div class="form-floating mb-3">
+				<input type="text" class="form-control" id="floatingInput" placeholder="Your Name" required>
+				<label for="floatingInput">Name</label>
+			</div>
+			<div class="form-floating mb-3">
+				<input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+				<label for="floatingInput">Email</label>
+			</div>
+			<div class="form-floating mb-3">
+				<textarea class="form-control" placeholder="Leave a message here" id="floatingTextarea"></textarea required>
+				<label for="floatingTextarea">Your Message</label>
+			</div>
+				<button class="btn btn-success" type="submit">Send</button>
+			</div>
+		</div>
+	</div>
+</div>
 <script>
-const container = document.querySelector("#multiCollapse");
-const filters = container.querySelectorAll("li a");
+	document.getElementById('products').onmouseover = function() {mouseOver()};
+	document.getElementById('products').onmouseout = function() {mouseOut()};
+	
+	function mouseOver () {
+	  let list = document.getElementById('dropdown-menu').classList;
+		list.add('show');
+	}
+	
+	function mouseOut () {
+	  let list = document.getElementById('dropdown-menu').classList;
+		list.remove('show');
+	}
+</script>
 
-    filters.forEach((filter) => {
-      filter.addEventListener("click", function () {
-        // ==== Filter btn toggle
-        let filterBtn = filters[0];
-        while (filterBtn) {
-          if (filterBtn.tagName === "A") {
-            filterBtn.classList.remove("active");
-          }
-          filterBtn = filterBtn.nextSibling;
-        }
-        this.classList.add("active");
-
-        // === filter
-        let selectedFilter = filter.getAttribute("data-filter");
-        let itemsToHide = document.querySelectorAll(
-          `.g-3 .col-lg-3:not([data-filter='${selectedFilter}'])`);
-        
-        let itemsToShow = document.querySelectorAll(
-          `.grid [data-filter='${selectedFilter}']`);
-        
-        if (selectedFilter == "all") {
-          itemsToHide = [];
-          itemsToShow = document.querySelectorAll(".grid [data-filter]");
-        }
-
-        itemsToHide.forEach((el) => {
-          el.classList.add("hide");
-          el.classList.remove("show");
-        });
-
-        itemsToShow.forEach((el) => {
-          el.classList.remove("hide");
-          el.classList.add("show");
-        });
-      });
-    });
-</script>	
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
