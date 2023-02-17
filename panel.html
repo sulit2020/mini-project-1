@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>iSign</title>
+	<title>Products</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -27,9 +27,11 @@
 						<li class="nav-item">
 						<a class="nav-link" href="about.html">About</a>
 						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle dropdown-toggle-split" href="products.html" role="button" aria-expanded="false" data-bs-toggle="dropdown">Products </a>
-							<ul class="dropdown-menu">
+						<li class="nav-item dropdown" id="products">
+							<a class="nav-link dropdown-toggle dropdown-toggle-split active" href="products.html" role="button" aria-expanded="false" data-bs-toggle="dropdown">Products </a>
+							<ul class="dropdown-menu" id="dropdown-menu">
+								<li><a class="dropdown-item" href="products.html">All Products</a></li>
+								<li><hr class="dropdown-divider"></li>
 								<li><a class="dropdown-item" href="adacompliant.html">ADA Compliant</a></li>
 								<li><a class="dropdown-item" href="castplaque.html">Cast Plaque</a></li>
 								<li><a class="dropdown-item" href="led.html">Illuminated and LED Displays</a></li>
@@ -116,17 +118,17 @@
 				<h2 class="fw-bold mt-3">Post Panel</h2>
 				<p class=" mt-4 ms-1">Our all-aluminum post and panel sign systems are perfect for site identification, wayfinding and directional signage applications. Available in a wide variety of configurations, including double post, flag, ceiling, and wall mount, we have a post and panel model to fit every situation. Signs can be customized with special paint colors and finishes, decorative posts, designer post caps, wordbars, and custom shaped toppers & panels. Illumination options, such as internal LED and incandescent lights, are available on selected models.</p>
             </div>
-			<div class="col-lg-2 mx-3">
+			<div class="col-lg-2 col-md-2 mx-2 col-12">
 				<div class="card shadow-lg my-3 ">
 					<img src="images/panel1.png" class="rounded-top" width="100%" height="550">
 				</div>	
 			</div>
-			<div class="col-lg-2 mx-3 ">
+			<div class="col-lg-2 col-md-2 mx-2 col-12 ">
 				<div class="card shadow-lg my-3">
 					<img src="images/panel2.png" class="rounded-top" width="100%" height="550">
 				</div>
 			</div>
-			<div class="col-lg-2 mx-2">
+			<div class="col-lg-2 col-md-2 mx-2 col-12">
 				<div class="card shadow-lg my-3">
 					<img src="images/panel3.png" class="rounded-top" width="100%" height="550">
 				</div>
@@ -134,6 +136,43 @@
 		</div>
 	</div>
 </section>
+<div class="btn-group dropup float-end">
+	<button type="button" class="accordion accordion-button" data-bs-toggle="dropdown" aria-expanded="false">
+    Leave us a message
+	</button>
+	<div class="dropdown-menu accordion-collapse">
+		<div class="accordion-body mx-2 my-3">
+			<div class="form-floating mb-3">
+				<input type="text" class="form-control" id="floatingInput" placeholder="Your Name" required>
+				<label for="floatingInput">Name</label>
+			</div>
+			<div class="form-floating mb-3">
+				<input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+				<label for="floatingInput">Email</label>
+			</div>
+			<div class="form-floating mb-3">
+				<textarea class="form-control" placeholder="Leave a message here" id="floatingTextarea"></textarea required>
+				<label for="floatingTextarea">Your Message</label>
+			</div>
+				<button class="btn btn-success" type="submit">Send</button>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	document.getElementById('products').onmouseover = function() {mouseOver()};
+	document.getElementById('products').onmouseout = function() {mouseOut()};
+	
+	function mouseOver () {
+	  let list = document.getElementById('dropdown-menu').classList;
+		list.add('show');
+	}
+	
+	function mouseOut () {
+	  let list = document.getElementById('dropdown-menu').classList;
+		list.remove('show');
+	}
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

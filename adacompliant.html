@@ -27,9 +27,11 @@
 						<li class="nav-item">
 						<a class="nav-link" href="about.html">About</a>
 						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle dropdown-toggle-split" href="products.html" role="button" aria-expanded="false" data-bs-toggle="dropdown">Products </a>
-							<ul class="dropdown-menu">
+						<li class="nav-item dropdown" id="products">
+							<a class="nav-link dropdown-toggle dropdown-toggle-split active" href="products.html" role="button" aria-expanded="false" data-bs-toggle="dropdown">Products </a>
+							<ul class="dropdown-menu" id="drodown-menu">
+								<li><a class="dropdown-item" href="products.html">All Products</a></li>
+								<li><hr class="dropdown-divider"></li>
 								<li><a class="dropdown-item" href="adacompliant.html">ADA Compliant</a></li>
 								<li><a class="dropdown-item" href="castplaque.html">Cast Plaque</a></li>
 								<li><a class="dropdown-item" href="led.html">Illuminated and LED Displays</a></li>
@@ -151,6 +153,43 @@
 		</div>
 	</div>
 </section>
+<div class="btn-group dropup float-end">
+	<button type="button" class="accordion accordion-button" data-bs-toggle="dropdown" aria-expanded="false">
+    Leave us a message
+	</button>
+	<div class="dropdown-menu accordion-collapse">
+		<div class="accordion-body mx-2 my-3">
+			<div class="form-floating mb-3">
+				<input type="text" class="form-control" id="floatingInput" placeholder="Your Name" required>
+				<label for="floatingInput">Name</label>
+			</div>
+			<div class="form-floating mb-3">
+				<input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+				<label for="floatingInput">Email</label>
+			</div>
+			<div class="form-floating mb-3">
+				<textarea class="form-control" placeholder="Leave a message here" id="floatingTextarea"></textarea required>
+				<label for="floatingTextarea">Your Message</label>
+			</div>
+				<button class="btn btn-success" type="submit">Send</button>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	document.getElementById('products').onmouseover = function() {mouseOver()};
+	document.getElementById('products').onmouseout = function() {mouseOut()};
+	
+	function mouseOver () {
+	  let list = document.getElementById('dropdown-menu').classList;
+		list.add('show');
+	}
+	
+	function mouseOut () {
+	  let list = document.getElementById('dropdown-menu').classList;
+		list.remove('show');
+	}
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
